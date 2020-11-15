@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Informasi Liga Inggris</title>
+    <meta name="description" content="Informasi Sepak Bola Liga Inggris"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#DAF111">
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="manifest" href="../manifest.json">
+
+    <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
+    <link rel="icon" type="image/png" href="../favicon.png"/>
+    <link rel="apple-touch-icon" href="../apple-icon.png">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo" id="logo-container">Informasi Liga Inggris</a>
+            <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+            <ul class="topnav right hide-on-med-and-down">
+                <li><a class="waves-effect " href="/">Home</a></li>
+                <li><a class="waves-effect " href="favorite.html">Favorite</a></li>
+            </ul>
+            <ul class="sidenav" id="nav-mobile">
+                <li><a class="waves-effect " href="/">Home</a></li>
+                <li><a class="waves-effect " href="favorite.html">Favorite</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="col s8 m6" id="favorites"></div>
+    </div>
+
+    <script src="../js/materialize.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/idb.js"></script>
+    <script src="../js/db.js"></script>
+    <script src="favorite.js"></script>
+</body>
+</html>

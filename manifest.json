@@ -1,0 +1,24 @@
+{
+  "name": "Informasi Sepak Bola Liga Inggris",
+  "short_name": "ISBLI",
+  "description": "Memberikan informasi sepak bola khusus liga inggris.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#DAF111",
+  "theme_color": "#DAF111",
+  "icons": [
+    {
+      "src": "/images/isbli-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/isbli-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "gcm_sender_id": "191057097503"
+}
