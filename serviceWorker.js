@@ -8,11 +8,14 @@ const urlToCache = [
     "/favicon.png",
     "/pages/detail.html",
     "/pages/favorite.html",
+    "/pages/favorite.js",
     "/css/materialize.min.css",
-    "/css/style.css",
+    "/css/styles.css",
+    "/js/api.js",
+    "/js/db.js",
+    "/js/idb.js",
+    "/js/index.js",
     "/js/materialize.min.js",
-    "/js/script.js",
-    "/js/sw-register.js",
     "/images/maskable_icon.png",
 ];
 
