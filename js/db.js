@@ -24,5 +24,12 @@ const Db = {
             const tx = db.transaction('teams', 'readonly')
             return tx.objectStore('teams').getAll()
         })
+    },
+
+    deleteTeam(id) {
+        dbPromise.then(db => {
+            const tx = db.transaction('teams', 'readwrite')
+            return tx.objectStore('teams').delete(id)
+        })
     }
 }

@@ -52,11 +52,23 @@ function renderDetail(data) {
     container.innerHTML = detail
 }
 
-function saveTeam(data) {
+async function saveTeam(data) {
     const button = document.getElementById('save')
+    if (await Db.getTeam(data.id)) {
+        button.innerHTML = 'delete'
+    }
 
-    button.addEventListener('click', () => {
-        Db.addTeam(data)
-        console.log('Ditambahkan ke favorite!')
+    button.addEventListener('click', async () => {
+        let exist = await Db.getTeam(data.id)
+
+        if (exist) {
+            Db.deleteTeam(data.id)
+            button.innerHTML = 'bookmark'
+            console.log('Team berhasil dihapus!')
+        } else {
+            Db.addTeam(data)
+            button.innerHTML = 'delete'
+            console.log('Team berhasil ditambahkan!')
+        }
     })
 }

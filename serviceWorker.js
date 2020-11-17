@@ -1,9 +1,8 @@
 const CACHE_NAME = "second-submission";
 const urlToCache = [
     "/",
-    "/nav.html",
+    "/index.html",
     "/manifest.json",
-    "/serviceWorker.js",
     "/apple-icon.png",
     "/favicon.png",
     "/pages/detail.html",

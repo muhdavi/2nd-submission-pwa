@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Register service worker
 function registerServiceWorker() {
-    return navigator.serviceWorker.register('sw.js')
+    return navigator.serviceWorker.register('../serviceWorker.js')
         .then(function (registration) {
             console.log('Registrasi service worker berhasil.');
             return registration;

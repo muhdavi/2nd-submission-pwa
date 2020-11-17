@@ -12,10 +12,10 @@ webPush.setVapidDetails(
     vapidKeys.privateKey
 )
 var pushSubscription = {
-    "endpoint": "<Endpoint URL>",
+    "endpoint": "https://fcm.googleapis.com/fcm/send/fAc5kEtOr5k:APA91bF-i4Hl7Ut6VZTjmN7sXh6xtLTTrvtzXvFdWqntfZeWRHfRxQ9sd5kIE6woHBmxy-3v_KzvQzCfhjZPBvmvVtzPfKtKQ_A18fllkTLfly8z4Ct3seiQzy1w8U_SXUAUYaSsdGHK",
     "keys": {
-        "p256dh": "BEdJXPhBafTlt8TjopMXZzouYp4u80_Mbb4nz5S3yMiv4vTrE62WmWCHAb9_3obiz9dcWogMtYAPh8MCZCWLmgk",
-        "auth": "<Auth key>"
+        "p256dh": "BPq6vAZp6k0V/acw8KdWHp1DFUAgFokU1EnvpAWXkMvhcFP4WXNaDdxuxZQheGwl3/Krzk/8sTcOjWtIFEeqI78=",
+        "auth": "xuRDIoP6xygQj/E2fnNSzA=="
     }
 };
 var payload = 'Selamat Datang di Aplikasi Informasi Liga Inggris';
