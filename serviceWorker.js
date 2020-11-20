@@ -6,8 +6,10 @@ const urlToCache = [
     "/apple-icon.png",
     "/favicon.png",
     "/pages/detail.html",
+    "/pages/detail.js",
     "/pages/favorite.html",
     "/pages/favorite.js",
+    "/pages/standings.js",
     "/css/materialize.min.css",
     "/css/styles.css",
     "/js/api.js",
@@ -16,6 +18,8 @@ const urlToCache = [
     "/js/index.js",
     "/js/materialize.min.js",
     "/images/maskable_icon.png",
+    "/images/isbli-192.png",
+    "/images/isbli-512.png",
 ];
 
 self.addEventListener("install", event => {
@@ -23,22 +27,6 @@ self.addEventListener("install", event => {
         caches.open(CACHE_NAME).then(function (cache) {
             return cache.addAll(urlToCache);
         })
-    );
-});
-
-self.addEventListener("fetch", event => {
-    event.respondWith(
-        caches
-            .match(event.request, { cacheName: CACHE_NAME})
-            .then(function (response) {
-                if (response) {
-                    console.log("ServiceWorker: Aset dari cache: ", response.url);
-                    return response;
-                }
-
-                console.log("Service Worker: Aset dari server: ", event.request.url);
-                return fetch(event.request);
-            })
     );
 });
 
@@ -54,5 +42,50 @@ self.addEventListener("activate", event => {
                 })
             );
         })
+    );
+});
+
+
+self.addEventListener("fetch", event => {
+    const base_url = "https://api.football-data.org/v2/";
+    if (event.request.url.indexOf(base_url) > -1) {
+        event.respondWith(
+            caches.open(CACHE_NAME).then(function(cache) {
+                return fetch(event.request).then(function(response) {
+                    cache.put(event.request.url, response.clone());
+                    return response;
+                })
+            })
+        );
+    } else {
+        event.respondWith(
+            caches.match(event.request, {'ignoreSearch': true}).then(function(response) {
+                return response || fetch (event.request);
+            })
+        )
+    }
+});
+
+
+self.addEventListener('push', function (event) {
+    var body;
+    if (event.data) {
+        body = event.data.text();
+    } else {
+        body = 'Push message no payload';
+    }
+
+    var options = {
+        body: body,
+        image: '/images/isbli-512.png',
+        vibrate: [100, 50, 100],
+        data: {
+            dateOfArrival: Date.now(),
+            primaryKey: 1
+        }
+    };
+
+    event.waitUntil(
+        self.registration.showNotification('Push Notification', options)
     );
 });

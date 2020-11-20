@@ -1,5 +1,16 @@
 const Api = {
     getStandings() {
+        if ("caches" in window) {
+            caches.match('https://api.football-data.org/v2/').then(function (response) {
+                if (response) {
+                    response.json().then(function (data) {
+                        console.log("Competition Data: " + data);
+                        return data;
+                    })
+                }
+            })
+        }
+
         return fetch('https://api.football-data.org/v2/competitions/2021/standings', {
             headers: {
                 'X-Auth-Token': '9ba167608e214031af211ba574b14b90'
